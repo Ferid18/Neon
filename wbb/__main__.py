@@ -118,7 +118,7 @@ home_keyboard_pm = InlineKeyboardMarkup(
     [
         [
             InlineKeyboardButton(
-                text="Commands ❓", callback_data="bot_commands"
+                text="Əmrlər ❓", callback_data="bot_commands"
             ),
             InlineKeyboardButton(
                 text="Rəsmi kanal",
@@ -127,16 +127,16 @@ home_keyboard_pm = InlineKeyboardMarkup(
         ],
         [
             InlineKeyboardButton(
-                text="System Stats 🖥",
+                text="Sistem statistikası 🖥",
                 callback_data="stats_callback",
             ),
             InlineKeyboardButton(
-                text="Support 👨", url="http://t.me/neonfedsupport"
+                text="Support qrup 👨", url="http://t.me/neonfedsupport"
             ),
         ],
         [
             InlineKeyboardButton(
-                text="Add Me To Your Group 🎉",
+                text="Məni Qrupunuza əlavə edin  🎉",
                 url=f"http://t.me/{BOT_USERNAME}?startgroup=new",
             )
         ],
@@ -144,16 +144,16 @@ home_keyboard_pm = InlineKeyboardMarkup(
 )
 
 home_text_pm = (
-    f"Hey there! My name is {BOT_NAME}. I can manage your "
-    + "group with lots of useful features, feel free to "
-    + "add me to your group."
+    f"Salam! Mənim adım {BOT_NAME}. Səni idarə edə bilərəm  "
+    + "çoxlu faydalı xüsusiyyətləri olan qrup, çekinmeyin  "
+    + "məni qrupunuza əlavə edin ."
 )
 
 keyboard = InlineKeyboardMarkup(
     [
         [
             InlineKeyboardButton(
-                text="Help ❓",
+                text="kömək ❓",
                 url=f"t.me/{BOT_USERNAME}?start=help",
             ),
             InlineKeyboardButton(
@@ -163,10 +163,10 @@ keyboard = InlineKeyboardMarkup(
         ],
         [
             InlineKeyboardButton(
-                text="System Stats 💻",
+                text="Sistem Statistikası 💻",
                 callback_data="stats_callback",
             ),
-            InlineKeyboardButton(text="Support 👨", url="t.me/Tiri_viri_isıer"),
+            InlineKeyboardButton(text="Support qrup 👨", url="https://t.me/neonfedsupport"),
         ],
     ]
 )
@@ -196,7 +196,7 @@ FED_MARKUP = InlineKeyboardMarkup(
 async def start(_, message):
     if message.chat.type != ChatType.PRIVATE:
         return await message.reply(
-            "Pm Me For More Details.", reply_markup=keyboard
+            "Ətraflı məlumat üçün pm a keç .", reply_markup=keyboard
         )
     if len(message.text.split()) > 1:
         user = await app.get_users(message.from_user.id)
@@ -221,8 +221,8 @@ async def start(_, message):
             else:
                 return await app.send_message(
                     user_id,
-                    "The group admins haven't set any rules for this chat yet. "
-                    "This probably doesn't mean it's lawless though...!",
+                    "Qrup adminləri bu söhbət üçün hələ heç bir qayda təyin etməyiblər . "
+                    "Bu, yəqin ki, o demək deyil ki, qanuna zidd deyil ...!",
                 )
         if name == "mkdwn_help":
             await message.reply(
@@ -280,23 +280,23 @@ async def help_command(_, message):
                     ]
                 )
                 await message.reply(
-                    f"Click on the below button to get help about {name}",
+                    f"Haqqında kömək almaq üçün aşağıdakı düyməyə klikləyin  {name}",
                     reply_markup=key,
                 )
             else:
                 await message.reply(
-                    "PM Me For More Details.", reply_markup=keyboard
+                    "Ətraflı məlumat üçün PM a yazın .", reply_markup=keyboard
                 )
         else:
             await message.reply(
-                "Pm Me For More Details.", reply_markup=keyboard
+                "Ətraflı məlumat üçün pm a yazın.", reply_markup=keyboard
             )
     else:
         if len(message.command) >= 2:
             name = (message.text.split(None, 1)[1]).replace(" ", "_").lower()
             if str(name) in HELPABLE:
                 text = (
-                    f"Here is the help for **{HELPABLE[name].__MODULE__}**:\n"
+                    f"Budur yardım  **{HELPABLE[name].__MODULE__}**:\n"
                     + HELPABLE[name].__HELP__
                 )
                 await message.reply(text, disable_web_page_preview=True)
@@ -323,10 +323,10 @@ async def help_parser(name, keyboard=None):
     if not keyboard:
         keyboard = InlineKeyboardMarkup(paginate_modules(0, HELPABLE, "help"))
     return (
-        """Hello {first_name}, My name is {bot_name}.
-I'm a group management bot with some useful features.
-You can choose an option below, by clicking a button.
-Also you can ask anything in Support Group.
+        """Salam {first_name}, Mənim Adım {bot_name}.
+Mən bəzi faydalı xüsusiyyətləri olan qrup idarəetmə botuyam. 
+Düyməni klikləməklə aşağıdakı variantı seçə bilərsiniz.
+Həmçinin Dəstək Qrupunda hər şeyi soruşa bilərsiniz. 
 """.format(
             first_name=name,
             bot_name=BOT_NAME,
@@ -362,20 +362,21 @@ async def help_button(client, query):
     back_match = re.match(r"help_back", query.data)
     create_match = re.match(r"help_create", query.data)
     top_text = f"""
-Hello {query.from_user.first_name}, My name is {BOT_NAME}.
-I'm a group management bot with some useful features.
-You can choose an option below, by clicking a button.
-Also you can ask anything in Support Group.
+Salam {query.from_user.first_name}, Mənim adım {BOT_NAME}.
+Mən bəzi faydalı xüsusiyyətləri olan qrup idarəetmə botuyam.
+Düyməni klikləməklə aşağıdakı variantı seçə bilərsiniz.
+Həmçinin Dəstək Qrupunda hər şeyi soruşa bilərsiniz. 
 
-General command are:
- - /start: Start the bot
- - /help: Give this message
+Ümumi komandalar:
+ - /start: Botu işə salın 
+ - /help: kömək 
  """
+ 
     if mod_match:
         module = (mod_match.group(1)).replace(" ", "_")
         text = (
             "{} **{}**:\n".format(
-                "Here is the help for", HELPABLE[module].__MODULE__
+                "Budur yardım ", HELPABLE[module].__MODULE__
             )
             + HELPABLE[module].__HELP__
         )
