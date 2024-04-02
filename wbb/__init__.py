@@ -35,31 +35,31 @@ from Python_ARQ import ARQ
 from telegraph import Telegraph
 
 
-BOT_TOKEN="6037242990:AAH4yK1ovZwEnjT2yV22JYmNGXW3nOT9QEk" # Get it from @botfather
+BOT_TOKEN="" # Get it from @botfather
 
-API_ID=22341875
+API_ID=
 
-API_HASH="b13c2392d55ae8a4800d3b4ed40bffb2"
+API_HASH=""
 
-SESSION_STRING="AgE7aHwAdQ3D6JtDLnTaNnqx0-nxtlvjZ6t_8MtkX1oJ8hZQ6ttEnHpUSNo0dQJDFHT-OQXDOx09hMOm9X9-_mKbGjbmyGQupz-xuGiTGNLDhsw5kwjVo1F-ivWavlPJq3T4e-VIgyt7y_weDFFPgCOM_mOCvLAQdlTGjeAy-MvDBUhxyjQtaU6ueietrqV34Cd260Vd_YPMqd7o-MKZk5Dbwvf7-tLqqtCsL6vNi8j_wQhNs6fv32tjQ0Ayik93uu9vVJlrXI6PNthPkIT9wsrW6XoWDJWm0kFymGtiHsMl-8OI9ucizP3mJHJ63uHD5LQw0aVvUIfvUv8AU6UKrdz0gvZWpAAAAAFr3-D8AA"
+SESSION_STRING=""
 
 USERBOT_PREFIX="."
 
-SUDO_USERS_ID=[5898049921] # Sudo users have full access to everythin, don't trust anyone
+SUDO_USERS_ID=[] # Sudo users have full access to everythin, don't trust anyone
 
-LOG_GROUP_ID=-1002064001274
+LOG_GROUP_ID=
 
-MONGO_URL="mongodb+srv://public:abishnoimf@cluster0.rqk6ihd.mongodb.net/?retryWrites=true&w=majority"
+MONGO_URL=""
 
-GBAN_LOG_GROUP_ID=-1002064001274
+GBAN_LOG_GROUP_ID=
 
-MESSAGE_DUMP_CHAT=-1002064001274
+MESSAGE_DUMP_CHAT=
 
 WELCOME_DELAY_KICK_SEC=300 # Edit if u want
 
 ARQ_API_URL="https://arq.hamker.dev" # Leave it like this
 
-ARQ_API_KEY="NDUZKA-EJDXBX-TJWGGO-MDTLCL-ARQ" # Get it from @ARQRobot
+ARQ_API_KEY="" # Get it from @ARQRobot
 
 LOG_MENTIONS=1 # Make it 1 if you want to enable it
 
